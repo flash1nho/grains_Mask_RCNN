@@ -11,13 +11,20 @@ class GrainsMaskRCNNConfig(Config):
     NAME = 'grains'
     # number of classes (background + grains)
     NUM_CLASSES = 1 + 1
-    STEPS_PER_EPOCH = 2
 
     GPU_COUNT = 1
     IMAGES_PER_GPU = 1
 
     IMAGE_MIN_DIM = 400
     IMAGE_MAX_DIM = 512
+
+    STEPS_PER_EPOCH = 131
+
+    LEARNING_RATE = 0.006
+
+    DETECTION_MIN_CONFIDENCE = 0.9
+
+    MAX_GT_INSTANCES = 10
 
 class GrainsDataset(Dataset):
     def load_dataset(self, dataset_dir, is_train=True):
@@ -35,9 +42,6 @@ class GrainsDataset(Dataset):
             # extract image id
             image_id = filename[:-4]
             
-            # skip bad images
-            if image_id in ['00090']:
-                continue
             # skip all images after 150 if we are building the train set
             if is_train and int(image_id) >= 150:
                 continue
