@@ -17,6 +17,9 @@
 # Установка Python модулей
 - `sudo pip3.6 install -r Mask_RCNN/requirements.txt`
 
+# Annotation
+- Для создания xml аннотаций: `https://github.com/tzutalin/labelImg`
+
 # Train
 - `python3.6 train.py`
 
