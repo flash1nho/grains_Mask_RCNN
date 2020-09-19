@@ -12,11 +12,11 @@ args = vars(ap.parse_args())
 config = GrainsMaskRCNNConfig()
 model = modellib.MaskRCNN(mode="inference", config=config, model_dir='models')
 
-model_path = 'models/mask_rcnn_grains_any.h5'
+model_path = 'models/mask_rcnn_grains.h5'
 model.load_weights(model_path, by_name=True)
 
 image = skimage.io.imread(args['image'])
-results = model.detect([image], verbose=0) # Display results
+results = model.detect([image], verbose=1) # Display results
 result = results[0]
 
 visualize.save_image(
@@ -26,8 +26,8 @@ visualize.save_image(
   result['masks'],
   result['class_ids'],
   result['scores'],
-  ['__background__', 'grains_2mm', 'grains_2_5mm', 'grains_3mm'],
-  filter_classs_names = ['grains_2mm', 'grains_2_5mm', 'grains_3mm'],
+  ['__background__', 'grains'],
+  filter_classs_names = ['grains'],
   scores_thresh = 0.9,
   mode = 0
 )

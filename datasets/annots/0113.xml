@@ -1,50 +1,26 @@
 <annotation>
 	<folder>images</folder>
 	<filename>0113.jpg</filename>
-	<path>/home/iokunev/projects/grains/datasets/images/0113.jpg</path>
+	<path>/home/iokunev/projects/grains_Mask_RCNN/datasets/images/0113.jpg</path>
 	<source>
 		<database>Unknown</database>
 	</source>
 	<size>
-		<width>2471</width>
-		<height>3504</height>
+		<width>823</width>
+		<height>1168</height>
 		<depth>3</depth>
 	</size>
 	<segmented>0</segmented>
 	<object>
-		<name>grains_2_5mm</name>
+		<name>grains</name>
 		<pose>Unspecified</pose>
 		<truncated>0</truncated>
 		<difficult>0</difficult>
 		<bndbox>
-			<xmin>1695</xmin>
-			<ymin>2018</ymin>
-			<xmax>1819</xmax>
-			<ymax>2154</ymax>
-		</bndbox>
-	</object>
-	<object>
-		<name>grains_2_5mm</name>
-		<pose>Unspecified</pose>
-		<truncated>0</truncated>
-		<difficult>0</difficult>
-		<bndbox>
-			<xmin>1641</xmin>
-			<ymin>1568</ymin>
-			<xmax>1765</xmax>
-			<ymax>1704</ymax>
-		</bndbox>
-	</object>
-	<object>
-		<name>grains_2_5mm</name>
-		<pose>Unspecified</pose>
-		<truncated>0</truncated>
-		<difficult>0</difficult>
-		<bndbox>
-			<xmin>1607</xmin>
-			<ymin>1298</ymin>
-			<xmax>1731</xmax>
-			<ymax>1434</ymax>
+			<xmin>427</xmin>
+			<ymin>559</ymin>
+			<xmax>466</xmax>
+			<ymax>617</ymax>
 		</bndbox>
 	</object>
 </annotation>

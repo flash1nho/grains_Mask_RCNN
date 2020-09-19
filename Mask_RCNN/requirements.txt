@@ -4,10 +4,11 @@ Pillow
 cython
 matplotlib
 scikit-image
-tensorflow>=1.15.2
+tensorflow==1.14.0
 keras==2.1.0
-opencv-python
+opencv-python==4.2.0.34
 h5py
 imgaug
 IPython[all]
 imutils
+scikit-build
