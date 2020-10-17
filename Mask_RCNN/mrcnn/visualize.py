@@ -93,6 +93,8 @@ def save_image(image, image_name, boxes, masks, class_ids, scores, class_names, 
 
     colors = random_colors(len(useful_mask_indices))
 
+    image_height, image_width, _ = image.shape
+
     if mode != 3:
         masked_image = image.astype(np.uint8).copy()
     else:
@@ -112,18 +114,30 @@ def save_image(image, image_name, boxes, masks, class_ids, scores, class_names, 
     colors = np.array(colors).astype(int) * 255
 
     for index, value in enumerate(useful_mask_indices):
-        class_id = class_ids[value]
-        score = scores[value]
-        label = class_names[class_id]
-
         y1, x1, y2, x2 = boxes[value]
+
+        width = x2 - x1
+        height = y2 - y1
+        width_delimeter = image_width / width
+        height_delimeter = image_height / height
+
+        width = round(width / width_delimeter * 0.2645833333)
+        height = round(height / height_delimeter * 0.2645833333)
+        value = min([width, height])
+
+        if value == 0:
+            continue
+
+        result = str(value) + 'мм'
+        label = 'Размер:'
+
         if mode != 2:
             color = tuple(colors[index])
             draw.rectangle((x1, y1, x2, y2), outline=color)
 
         # Label
         font = ImageFont.truetype('/home/iokunev/projects/grains_Mask_RCNN/Mask_RCNN/fonts/arial.ttf', 15)
-        draw.text((x1, y1), "%s %f" % (label, score), (255, 255, 255), font)
+        draw.text((x1, y1), "%s %s" % (label, result), (0, 0, 0), font)
 
     masked_image.save(os.path.join(save_dir, '%s.jpg' % (image_name)))
 

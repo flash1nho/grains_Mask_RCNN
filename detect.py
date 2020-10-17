@@ -16,7 +16,7 @@ model_path = 'models/mask_rcnn_grains.h5'
 model.load_weights(model_path, by_name=True)
 
 image = skimage.io.imread(args['image'])
-results = model.detect([image], verbose=1) # Display results
+results = model.detect([image], verbose = 1) # Display results
 result = results[0]
 
 visualize.save_image(
@@ -28,6 +28,6 @@ visualize.save_image(
   result['scores'],
   ['__background__', 'grains'],
   filter_classs_names = ['grains'],
-  scores_thresh = 0.9,
+  scores_thresh = 0.98,
   mode = 0
 )
